@@ -44,7 +44,6 @@ class StatesAndCitiesServiceProvider extends ServiceProvider
         /*
          * LOAD RESOURCES
          */
-        $this->loadMigrationsFrom($migrationsDir);
         $this->loadTranslationsFrom($langDir,'StatesAndCities');
         $this->loadViewsFrom($viewsDir,'StatesAndCities');
 
@@ -55,6 +54,7 @@ class StatesAndCitiesServiceProvider extends ServiceProvider
         $this->publishes([$viewsDir => resource_path('views/vendor/StatesAndCities')],'laravel-states-and-cities-views');
         $this->publishes([$publicDir => public_path('vendor/StatesAndCities')],'laravel-states-and-cities-assets');
         $this->publishes([$configDir => config_path('states-and-cities.php')],'laravel-states-and-cities-config');
+        $this->publishes([$migrationsDir => database_path('migrations')], 'laravel-states-and-cities-migrations');
 
     }
 
